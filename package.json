@@ -1,0 +1,88 @@
+{
+  "name": "zod-error-x",
+  "version": "0.0.0",
+  "description": "A lightweight formatter for Zod errors that transforms raw validation issues into clean, readable, and loggable output.",
+  "keywords": [
+    "zod",
+    "zod-error",
+    "error-formatter",
+    "validation",
+    "validation-errors",
+    "schema-validation",
+    "typescript",
+    "error-handling",
+    "developer-experience",
+    "dx",
+    "formatter",
+    "zod-utils",
+    "error-utils",
+    "clean-errors",
+    "loggable-errors"
+  ],
+  "homepage": "https://teneplaysofficial.github.io/zod-error-x",
+  "repository": "git+https://github.com/teneplaysofficial/zod-error-x.git",
+  "bugs": "https://github.com/teneplaysofficial/zod-error-x/issues",
+  "funding": "https://github.com/sponsors/teneplaysofficial",
+  "license": "Apache-2.0",
+  "author": "Sriman",
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "provenance": false
+  },
+  "packageManager": "pnpm@10.33.0",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "types": "./dist/index.d.cts",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "fmt": "prettier --write .",
+    "fmt:check": "prettier --check .",
+    "lint": "biome check",
+    "lint:fix": "biome check --write",
+    "prepare": "husky",
+    "prepublishOnly": "pnpm run test && pnpm run build",
+    "test": "vitest run --coverage",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "zod": "^4"
+  },
+  "peerDependenciesMeta": {
+    "zod": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.9",
+    "@tenedev/prettier-config": "^1.2.0",
+    "@types/node": "^25.5.0",
+    "@vitest/coverage-v8": "4.1.1",
+    "echo-banner": "^0.3.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.8.1",
+    "tsdown": "^0.21.5",
+    "typescript": "^6.0.2",
+    "vitest": "^4.1.1"
+  },
+  "prettier": "@tenedev/prettier-config",
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown",
+    "*.{js,ts}": "pnpm run lint:fix"
+  }
+}
